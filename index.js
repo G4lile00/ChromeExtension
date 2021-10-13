@@ -3,15 +3,25 @@ const interval = setInterval(() => {
   if (header) {
     clearInterval(interval);
     const a = document.createElement("a");
-    const image = document.querySelector("img._2dXkT").src;
-    a.innerHTML = "Download";
+    try {
+      const image = document.querySelector("img._2dXkT").src;
+      a.innerHTML = "Download";
+      a.href = image
+      a.download = image
+  
+    } catch {
+      const video = document.querySelector("video.Nu3Wb").src;
+      a.innerHTML = "Download";
+      a.href = video
+      a.download = video
+    
+    }
+
     a.classList.add("DownloadBtn");
-    a.href = image
-    a.download = image
 
 
     console.log(header)
-
+    
 
 
     header.appendChild(a);
